@@ -1,0 +1,29 @@
+<!--
+  2860Poker Timer 
+     SMP  02-09-2026   ver. 3.70
+ 
+ https://clock.2860poker.dk alt.  https://2860poker.dk/clock
+                                  https://2860poker.dk/clock/stat   (show statics)
+  
+  Optional command line parameters:
+    title=page title      give the game a title    ([ctrl]+[alt]+'t')
+    config                show config panel        ([ctrl]+[alt]+'c')
+    debug                 show debug panel
+    reset                 reset all settings       
+    speed=nn              for debug only  speed=59 for 1 min. increments [9, 29, 59]
+    blinds=test           for debug only  set blinds for test
+  ex.
+    https://2860poker.dk/clock/?config&title=2860poker.dk
+
+  keyboard actions:
+    [F1]                    : Help
+    [Pause/Break] | [space] : pause and continues the current game
+    [ctrl]+[alt]+'t'        : give the game a title (must be on pause)
+    [ctrl]+[alt]+'c'        : show config dialog    (must be on pause) 
+    [ctrl]+[alt]+'n'        : start new game        (must be on pause) 
+    [ctrl]+[alt]+'d'        : delete game cookies   (must be on pause)
+    [ctrl]+[alt]+'l'        : show game stats       (must be on pause)  https://2860poker.dk/clock/stat
+    
+  touch actions:
+    two finger tab          : show/hide config dialog (must be on pause)
+ ->

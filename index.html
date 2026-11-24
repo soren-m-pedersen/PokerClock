@@ -1,0 +1,153 @@
+<!--
+  2860Poker Timer 
+     SMP  06-11-2026   ver. 3.70
+ 
+ https://clock.2860poker.dk alt.  https://2860poker.dk/clock
+                                  https://2860poker.dk/clock/stat   (show statics)
+  
+  Optional command line parameters:
+    title=page title      give the game a title    ([ctrl]+[alt]+'t')
+    config                show config panel        ([ctrl]+[alt]+'c')
+    debug                 show debug panel
+    reset                 reset all settings       ([ctrl]+[alt]+'d') 
+    speed=nn              for debug only  speed=59 for 1 min. increments [9, 29, 59]
+  ex.
+    https://2860poker.dk/clock/?config&title=2860poker.dk
+
+  keyboard actions:
+    [F1]                    : Help
+    [Pause/Break] | [space] : pause and continues the current game
+    [ctrl]+[alt]+'t'        : give the game a title (must be on pause)
+    [ctrl]+[alt]+'c'        : show config dialog    (must be on pause) 
+    [ctrl]+[alt]+'n'        : start new game        (must be on pause) 
+    [ctrl]+[alt]+'d'        : delete game cookies   (must be on pause)
+    [ctrl]+[alt]+'l'        : show statics          (must be on pause)
+  
+  touch actions:
+    two finger tab          : show/hide config dialog (must be on pause)
+      
+ -->
+<!-- ===================================================================================== -->
+<!DOCTYPE html>
+<html>
+  <head>     
+    <meta charset="utf-8" />
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0, content=max-age=0" />
+    <meta http-equiv="expires"       content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta name="viewport"            content="width=device-width, initial-scale=1.0" />
+    <link rel="icon"       type="image/x-icon" href="res/images/favicon.ico" />
+    <link rel="stylesheet" href="res/pokertimer.3.70.css?ver=3.70.19" />
+    <title>PokerTimer by 2860poker.dk</title>
+  </head>
+  <body>
+    <!-- Application table -->
+    <table border = 0 id="applicationTable"><tr><td>    
+    <noscript><img src="res/images/js-t.png"><br><h2>JavaScript is required for this content</h2></noscript>
+    
+    <!-- The button topbar -->
+    <table border = 0>
+      <tr class="topBar">
+        <td class="actionLeft">
+          <button id='actionButton'></button>
+        </td>
+        <td class="actionCenter"></td> 
+        <td class="actionCenter"><p class="topBar" id='statChips'></p><br>
+          <div id="dlgChips" class="cDialog">
+           <input type="checkbox" id="rChips">
+          </div>
+        </td>
+        <td class="actionCenter"><p class="topBar" id='statSound'></p><br>
+          <div id="dlgSound" class="cDialog">
+            <select id="soundSelect"></select>
+          </div>
+        </td>
+        <td class="actionCenter"><p class="topBar" id='statMute'></p><br>
+          <div id="dlgMute" class="cDialog">
+            <input type="checkbox" id="rMute">
+          </div>
+        </td>
+        <td class="actionCenter"><p class="topBar" id='statColor'></p><br>
+          <div id="dlgColor" class="cDialog">
+            <select id="colorSelect"></select>
+          </div>
+        </td>
+        <td class="actionCenter"><p class="topBar" id='statBlinds'></p><br>
+          <div id="dlgBlinds" class="cDialog">
+            <select id="blindSelect"></select>
+          </div>
+        </td>
+        
+        <td class="actionCenter"><p class="topBar" id='statBreak'></p><br>
+          <div id="dlgBreak" class="cDialog">
+            <input type="checkbox" id="rBreak">
+          </div>
+        </td>
+        
+        <td class="actionCenter"><p class="topBar" id='statBlindsLevel'></p><br>
+          <div id="dlgBlindLevel" class="cDialog">
+            <select id="blindLevelSelect"></select>
+          </div>
+        </td>
+        <td class="actionCenter"><p class="topBar" id='statVoice'></p><br>
+          <div id="dlgVoice" class="cDialog">
+            <select id="voiceSelect"></select>
+          </div>
+        </td>
+        <td class="actionCenter"><p class="topBar" id='statVoiceOnOff'></p><br>
+          <div id="dlgVoiceOnOff" class="cDialog">
+            <input type="checkbox" id="rVoiceOnOff">
+          </div>
+        </td>
+        <td class="actionCenter"></td>
+        <td class="actionRight">
+          <button id='restartButton'></button>
+        </td>
+      </tr>
+    </table>
+
+    <!-- The main page layout -->
+    <table border = 0>
+      <tr><td rowspan = 9 ><div class="cChips" id='chipValues'></div></td></tr>  <!-- The chip values -->
+      <tr><td><div class="cPageTitle"><p id='pageTitle'></p></div></td></tr>
+      <tr><td><div class="cSpacer" id='linefeed'></div></td></tr>
+      <tr><td><div class="cBlindsTitle"><p id='blindsHeader'></p></div></td></tr>
+      <tr><td><div class="cSpacer"><br></div></td></tr>
+      <tr><td><div class="cBlinds"><p id='theBlinds'></p></div></td></tr>
+      <tr><td><div class="cTimer"><p id='levelTimer'></p></div></td></tr>
+      <tr><td><div class="cSpacer"><br></div></td></tr>
+      <tr><td><div class="cNextBlinds"><p id='theNextBlinds'></p></div></td></tr>
+      <!--<tr><td><div class="cSpacer"><br></div></td></tr>-->
+    </table>
+    <table border = 0><tr><td>
+    <!-- The progress bar -->
+    <div class="progressBar" id="levelProgressBar">
+      <div class="progress" id="levelProgress"></div>
+    </div>
+    </td></tr></table>
+    
+    <!-- The bottom status bar -->
+    <table border = 0>
+      <tr>
+        <td class="actionLeft"><p class="botBar" id='version'></p></td>
+        <td></td>
+        <td class="actionCenter"><p class="botBar" id='sysver'></p></td>
+        <td></td>
+        <td class="actionRight"><p class="botBar" id='gametime'></p></td>
+      </tr>
+    </table>
+    
+    <!-- page bottom debug info -->
+    <table border = 0>
+      <tr><td>
+        <p class="debug" id='debuginfo'></p>  
+      </td></tr>
+    </table>    
+    
+    <!-- end Application table -->
+    </td></tr></table>    
+    
+    <p><video id='keepalive'></video></p>
+    <script type="text/javascript" src="res/pokertimer.3.70.js?ver=3.70.19"></script>
+  </body>
+</html>
+<!-- ===================================================================================== -->
