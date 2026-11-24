@@ -148,7 +148,7 @@ const optVoiceLang     = "voicelang";          // voice language options list
 const optVoiceName     = "voicename";          // name of voice options list
 
 /* File references */
-const soundsPath       = "res/mm/sounds/";     // path to sounds 
+const soundsPath       = "./res/mm/sounds/";     // path to sounds 
 const soundLevel       = "/NewLevel.wav";      // sound name new level          (same name in alle folders)
 const soundLevelwarn   = "/NewLevelWarn.wav";  // sound name new level warning  (same name in alle folders)
 const soundDefault     = "GongGong";           // default sound                 (folder name)
