@@ -149,8 +149,8 @@ const optVoiceName     = "voicename";          // name of voice options list
 
 /* File references */
 const soundsPath       = "res/mm/sounds/";     // path to sounds 
-const soundLevel       = "/NewLevel.wav"?raw=true;      // sound name new level          (same name in alle folders)
-const soundLevelwarn   = "/NewLevelWarn.wav"?raw=true;  // sound name new level warning  (same name in alle folders)
+const soundLevel       = "/NewLevel.wav?raw=true";      // sound name new level          (same name in alle folders)
+const soundLevelwarn   = "/NewLevelWarn.wav?raw=true";  // sound name new level warning  (same name in alle folders)
 const soundDefault     = "GongGong";           // default sound                 (folder name)
 const fileHelp         = "help.html";          // help page
 const fileStatistics   = "statistics.html";    // statistics page
