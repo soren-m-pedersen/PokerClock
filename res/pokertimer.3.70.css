@@ -1,0 +1,60 @@
+/* ----------------------------------------------------------------- */
+/*  
+  Stylesheet for 2860Poker Timer 
+      SMP  08-09-2026   ver. 3.60
+      SMP  06-11-2026   ver. 3.70    div.cChips { ...; line-height: 90%;}  
+*/
+ 
+/* ----------------------------------------------------------------- */
+  :root {
+     --bgColor:        Navy;
+     --fgColor:        Yellow;
+     --fgColorAlt:     White;      
+     --fgWarning:      OrangeRed;   
+     --bgButOver:      FireBrick;
+     --bgButBack:      Lightgray;
+     --fgDimmed:       DarkGray;         
+     --bgProgress:     Gray;        
+     --fgProgress:     LimeGreen;   
+     --fgColorBlack:   Black;       
+   }
+/* ----------------------------------------------------------------- */
+    html             { font-family: sans-serif; margin: 0; padding: 0; background-color: var(--bgColor); cursor: default; } 
+    body             { font-size: 1.0em; color: var(--fgColorAlt); cursor: none; } 
+    p                { display: inline; white-space: nowrap; }
+    p.topBar         { font-size: 0.7em; margin: 5px; }
+    p.botBar         { font-size: 0.8em; margin: 8px; font-weight: bold; }  
+    p.debug          { font-size: 0.5em; } 
+    div              { text-align: center; vertical-align: top;  white-space: nowrap; font-weight: bold; }
+    
+    div.cPageTitle   { font-size:  calc( 3 *   (0.6vw + 0.4vh)); font-weight: normal; color: var(--fgDimmed); }
+    div.cBlindsTitle { font-size:  calc( 4 *   (0.6vw + 0.4vh)); font-weight: normal; }
+    div.cBlinds      { font-size:  calc(18 *   (0.6vw + 0.4vh)); color: var(--fgDimmed); }  
+    div.cTimer       { font-size:  calc(14 *   (0.6vw + 0.4vh)); color: var(--fgDimmed); }
+    div.cNextBlinds  { font-size:  calc( 7 *   (0.6vw + 0.4vh)); font-weight: normal; color: var(--fgColorAlt); }
+    div.cSpacer      { font-size:  calc( 0.5 * (0.6vw + 0.4vh)); }
+    
+    div.cDialog      { display:    inline; }
+    div.cChips       { text-align: center; font-size: 1.6em; font-weight: bold; line-height: 100%; }
+    div.progressBar  { width: 100%; background-color: var(--bgProgress); border-radius: 25px 25px 25px 25px;  }   
+    div.progress     { width:   0%; background-color: var(--fgProgress); height: 25px; color: var(--fgColorBlack); border-radius: 25px 25px 25px 25px; }
+    table            { width: 100%; border-collapse: collapse;  border: none; margin-left: auto; margin-right: auto; }
+    tr.topBar        { height: 35px; cursor: default; }
+    td.actionLeft    { width: 5%; text-align:  left;   vertical-align: top;} 
+    td.actionRight   { width: 5%; text-align:  right;  vertical-align: top;}
+    td.actionCenter  { width: 0px; text-align: center; vertical-align: top; padding-right: 5px; padding-left: 5px; } 
+    img.chip         { width: calc( 4.0 * (0.6vw + 0.4vh)); object-fit: contain; } 
+    select           { background-color: var(--bgButBack); color: var(--fgColorBlack); margin: 0; padding: 5; }
+    button           { background-color: var(--bgButBack); color: var(--fgColorBlack); margin: 5; padding: 5; font-size: 1.0em; font-weight: Bold; height: 30px; width: 85px; }
+    button:hover     { background-color: var(--bgButOver); color: var(--fgColorAlt); cursor: pointer; }
+
+/* ----------------------------------------------------------------- */
+ 
+/*
+Colors:
+https://www.quackit.com/css/color/charts/css_color_names_chart.cfm
+
+https://www.w3schools.com/html/
+
+Old XP-PC width x height 1280 x 800
+*/
